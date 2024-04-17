@@ -11,12 +11,12 @@ describe('Login tests with POM', () => {
         LoginPage.open();
     })
 
-    it.only('Login with incorrect login and password', () => {
+    it('Login with incorrect login and password', () => {
         //POM:
         // LoginPage.login(userData.userNames.incorrectUser, userData.passwords.incorrectPassword);
 
         //Custom Commands:
-        cy.login(userData.userNames.incorrectUser, userData.passwords.incorrectPassword);
+        LoginPage.login(userData.userNames.incorrectUser, userData.passwords.incorrectPassword);
         LoginPage.verifyErrorMessage('Epic sadface: Username and password do not match any user in this service');
     })
 
