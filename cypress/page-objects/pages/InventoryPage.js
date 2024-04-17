@@ -58,6 +58,10 @@ class InventoryPage extends BasePage {
     get sortingOptions() {
         return cy.get('[data-test="product-sort-container"] option');
     }
+
+    get cartIcon() {
+        return cy.get('[data-test="shopping-cart-link"]');
+    }
 }
 
 export default new InventoryPage();

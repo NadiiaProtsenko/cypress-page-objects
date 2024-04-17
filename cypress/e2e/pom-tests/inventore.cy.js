@@ -44,4 +44,9 @@ describe('Inventory tests with POM', () => {
         InventoryPage.sortingOptions.should('have.length', 4);
     })
 
+    it('Redirects to cart page after clicking on cart icon', () => {
+        InventoryPage.cartIcon.click();
+        cy.url().should('eq', 'https://www.saucedemo.com/cart.html');
+    })
+
 }) 
