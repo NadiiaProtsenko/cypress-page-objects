@@ -62,6 +62,18 @@ class InventoryPage extends BasePage {
     get cartIcon() {
         return cy.get('[data-test="shopping-cart-link"]');
     }
+
+    get allItems(){
+        return cy.get('[data-test="inventory-item-name"]')
+    }
+
+    getItemByName(name){
+        return cy.get('[data-test="inventory-item-name"]').contains(name);
+    }
+
+    clickItemByIndex(index){
+        this.allItems.eq(index).click();
+    }
 }
 
 export default new InventoryPage();
