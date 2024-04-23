@@ -22,27 +22,6 @@ class InventoryPage extends BasePage {
         return cy.get('[data-test="title"]').contains('Products');
     }
 
-    open() {
-        super.open('');
-        LoginPage.login(userData.userNames.correctUser, userData.passwords.correctPassword);
-        this.pageTitle.should('be.visible');
-    }
-
-    selectSortingOption(option) {
-        this.sortingDropdown.select(option);
-
-    }
-
-    getAllPricesOnPage() {
-        let actualPrices = [];
-        this.allPrices.each(($price) => {
-            cy.wrap($price).invoke('text').then((text) => {
-                actualPrices.push(text);
-            })
-        })
-        return actualPrices;
-    }
-
     get burgerMenu() {
         return cy.get('.bm-burger-button'); 
     }
@@ -65,6 +44,27 @@ class InventoryPage extends BasePage {
 
     get allItems(){
         return cy.get('[data-test="inventory-item-name"]')
+    }
+
+    open() {
+        super.open('');
+        LoginPage.login(userData.userNames.correctUser, userData.passwords.correctPassword);
+        this.pageTitle.should('be.visible');
+    }
+
+    selectSortingOption(option) {
+        this.sortingDropdown.select(option);
+
+    }
+
+    getAllPricesOnPage() {
+        let actualPrices = [];
+        this.allPrices.each(($price) => {
+            cy.wrap($price).invoke('text').then((text) => {
+                actualPrices.push(text);
+            })
+        })
+        return actualPrices;
     }
 
     getItemByName(name){

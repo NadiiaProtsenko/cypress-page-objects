@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
-import InventoryPage from "../../page-objects/pages/InventoryPage"
+import InventoryPage from "../../page-objects/pages/InventoryPage";
+import ItemPage from "../../page-objects/pages/ItemPage";
 
 
 describe('Inventory tests with POM', () => {
@@ -27,16 +28,9 @@ describe('Inventory tests with POM', () => {
         cy.wrap(actualPrices).should('deep.equal', expectedPrices);
     })
 
-
-    it('Burger menu is visible', () => {
+    it('Burger menu, shopping cart icon, and sorting dropdown are visible', () => {
         InventoryPage.burgerMenu.should('be.visible');
-    })
-
-    it('Shopping cart icon is visible', () => {
         InventoryPage.shoppingCartIcon.should('be.visible');
-    })
-
-    it('Sorting dropdown is visible', () => {
         InventoryPage.sortingIcon.should('be.visible');
     })
 
@@ -49,65 +43,64 @@ describe('Inventory tests with POM', () => {
         cy.url().should('eq', 'https://www.saucedemo.com/cart.html');
     })
 
-    it('Click on item by index 0', () =>{
+    it('Click on item by index 0', () => {
         InventoryPage.clickItemByIndex(0);
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Backpack');
+        ItemPage.checkItemNameVisibility('Sauce Labs Backpack');
     })
 
-    it('Click on item by name Sauce Labs Backpack', () =>{
+    it('Click on item by name Sauce Labs Backpack', () => {
         InventoryPage.getItemByName('Sauce Labs Backpack').click();
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Backpack');
+        ItemPage.checkItemNameVisibility('Sauce Labs Backpack');
     })
 
-    it('Click on item by index 1', () =>{
+    it('Click on item by index 1', () => {
         InventoryPage.clickItemByIndex(1);
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Bike Light');
+        ItemPage.checkItemNameVisibility('Sauce Labs Bike Light');
     })
 
-    it('Click on item by name Sauce Labs Bike Light', () =>{
+    it('Click on item by name Sauce Labs Bike Light', () => {
         InventoryPage.getItemByName('Sauce Labs Bike Light').click();
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Bike Light');
+        ItemPage.checkItemNameVisibility('Sauce Labs Bike Light');
     })
 
-    it('Click on item by index 2', () =>{
+    it('Click on item by index 2', () => {
         InventoryPage.clickItemByIndex(2);
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Bolt T-Shirt');
+        ItemPage.checkItemNameVisibility('Sauce Labs Bolt T-Shirt');
     })
 
-    it('Click on item by name Sauce Labs Bolt T-Shirt', () =>{
+    it('Click on item by name Sauce Labs Bolt T-Shirt', () => {
         InventoryPage.getItemByName('Sauce Labs Bolt T-Shirt').click();
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Bolt T-Shirt');
+        ItemPage.checkItemNameVisibility('Sauce Labs Bolt T-Shirt');
     })
 
-    it('Click on item by index 3', () =>{
+    it('Click on item by index 3', () => {
         InventoryPage.clickItemByIndex(3);
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Fleece Jacket');
+        ItemPage.checkItemNameVisibility('Sauce Labs Fleece Jacket');
     })
 
-    it('Click on item by name Sauce Labs Fleece Jacket', () =>{
+    it('Click on item by name Sauce Labs Fleece Jacket', () => {
         InventoryPage.getItemByName('Sauce Labs Fleece Jacket').click();
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Fleece Jacket');
+        ItemPage.checkItemNameVisibility('Sauce Labs Fleece Jacket');
     })
 
-    it('Click on item by index 4', () =>{
+    it('Click on item by index 4', () => {
         InventoryPage.clickItemByIndex(4);
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Onesie');
+        ItemPage.checkItemNameVisibility('Sauce Labs Onesie');
     })
 
-    it('Click on item by name Sauce Labs Onesie', () =>{
+    it('Click on item by name Sauce Labs Onesie', () => {
         InventoryPage.getItemByName('Sauce Labs Onesie').click();
-        cy.get('.inventory_details_name').should('have.text','Sauce Labs Onesie');
+        ItemPage.checkItemNameVisibility('Sauce Labs Onesie');
     })
 
-    it('Click on item by index 5', () =>{
+    it('Click on item by index 5', () => {
         InventoryPage.clickItemByIndex(5);
-        cy.get('.inventory_details_name').should('have.text','Test.allTheThings() T-Shirt (Red)');
+        ItemPage.checkItemNameVisibility('Test.allTheThings() T-Shirt (Red)');
     })
 
-    it('Click on item by name Test.allTheThings() T-Shirt (Red)', () =>{
+    it('Click on item by name Test.allTheThings() T-Shirt (Red)', () => {
         InventoryPage.getItemByName('Test.allTheThings() T-Shirt (Red)').click();
-        cy.get('.inventory_details_name').should('have.text','Test.allTheThings() T-Shirt (Red)');
+        ItemPage.checkItemNameVisibility('Test.allTheThings() T-Shirt (Red)');
     })
 
-
-}) 
+})

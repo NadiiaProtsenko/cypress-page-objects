@@ -28,16 +28,20 @@ class ItemPage extends BasePage {
         return cy.get('[data-test="inventory-item-name"]');
     }
 
-    getItemByName(name){
-        return cy.get('[data-test="inventory-item-name"]').contains(name);
-    }
-
     get addToCartButton() {
         return cy.get('[data-test="add-to-cart"]');
     }
 
     get removeButton() {
         return cy.get('[data-test="remove"]');
+    }
+
+    getItemByName(name){
+        return cy.get('[data-test="inventory-item-name"]').contains(name);
+    }
+
+    checkItemNameVisibility(itemName) {
+        cy.get('.inventory_details_name').should('have.text', itemName);
     }
 }
 
